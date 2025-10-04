@@ -1,0 +1,727 @@
+
+<style type="text/css">
+<!--
+  
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  background-color: #eee;
+}
+
+/*---------- header ----------*/
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+.header-contents {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/*---------- #menu ----------*/
+#menu {
+  width: 100%;
+  max-width: 250px;
+  height: 100%;
+  background-color: #003093;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  transform: translate(250px);
+  transition: all .5s;
+}
+#menu.open {
+  transform: translate(0);
+}
+#menu ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#menu li {
+  padding: 8px;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+#menu_btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 6px 20px;
+  background-color: #003093;
+  cursor: pointer;
+}
+/* --- .menu-background --- */
+.menu-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.menu-background.open {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+/* ---------- main ----------*/
+main {
+  height: 100%;
+  padding: 0 50px;
+}
+.main-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  height: 250px;
+  margin: 0 auto;
+  background-color: #fff;
+  text-align: center;
+}
+.main-wrapper h1 {
+  line-height: 250px;
+  vertical-align: middle;
+}
+
+/* ---------- footer ---------- */
+footer {
+  width: 100%;
+  background-color: #00ff7f;
+  text-align: center;
+}
+.footer-wrapper {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+}
+  
+#QandA-2 {
+	width: 100%;
+	font-family: Arial;
+}
+  </style>
+<style type="text/css">li, div, h1, h2{
+  font-family: 'Arial';
+}</style>
+
+    </style>
+<style>
+  h1{
+    color: #ffffff;
+    background-color: rgba(3,86,255,1);
+     padding: 0rem 1rem;
+  border-bottom: 3px solid #000;
+  }
+</style>
+  <style type="text/css">h1, h2, p, {
+padding-left: 50px;
+}
+    .kuroda{
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 1.2em;
+    }
+    .ueda{
+    padding-left: 65px;
+    padding-right: 65px;
+    font-size: 1.2em;
+    }
+    </style>
+<style>.fadeUp{ 
+animation-name:fadeUpAnime;
+animation-duration:1.5s;
+animation-fill-mode:forwards;
+opacity:0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY();
+  }
+}
+  img{
+  /*画像の幅を100%に設定*/
+  width:100%;
+}
+  
+  nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  
+}
+html {
+    box-sizing: border-box;
+}
+
+*, 
+*:before, 
+*:after {
+    box-sizing: inherit;
+}
+
+
+.nav {
+    width: 500px;
+    margin: 10px auto 0 auto;
+    text-align: center;
+    background-color: rgba(220,220,255,0.8);
+}
+
+/* Navigation */
+  
+.nav {
+    font-family: Georgia, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.nav-items {
+    padding: 0;
+    list-style: none;
+  opacity: 1;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-right: 13px;
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.nav-link,
+.nav-link:link, 
+.nav-link:visited, 
+.nav-link:active,
+.submenu-link,
+.submenu-link:link, 
+.submenu-link:visited, 
+.submenu-link:active {
+    display: block;
+    position: relative;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+}
+
+.nav-link,
+.nav-link:link, 
+.nav-link:visited, 
+.nav-link:active {
+    color: #fff;
+    font-weight: bold;
+}
+
+.nav-link::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0,0,0,0.2);
+    opacity: 0;
+    -webkit-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover::before,
+.nav-link:hover::before {
+    opacity: 1;
+    -webkit-transform: translate(0, 5px);
+    transform: translate(0, 5px);
+}
+
+.dropdown {
+    position: relative;
+}
+
+
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 100;
+    width: 200px;
+    margin-left: -100px;
+    background: #fff;
+    border-radius: 3px;
+    line-height: 1.46667;
+    margin-top: -5px;
+    box-shadow: 0 0 8px rgba(0,0,0,.3);
+    opacity:0;
+    -webkit-transform: translate(0, 0) scale(.85);
+    transform: translate(0, 0)scale(.85);
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    pointer-events: none;
+}
+
+.submenu::after, 
+.submenu::before {
+    content: ""; 
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    height: 0;
+}
+
+.submenu::after {
+    border-bottom-color: #fff;
+}
+
+.submenu::before {
+    margin-left: -13px;
+    border: 13px solid transparent;
+    border-bottom-color: rgba(0,0,0,.1);
+    -webkit-filter:blur(1px);
+    filter:blur(1px);
+}
+
+.submenu-items {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.submenu-item {
+    display: block;
+    text-align: left;
+}
+
+.submenu-link,
+.submenu-link:link, 
+.submenu-link:visited, 
+.submenu-link:active {
+    color: #3498db;
+    padding: 10px 20px;
+}
+
+.submenu-link:hover {
+    text-decoration: underline;
+}
+
+.submenu-seperator {
+    height: 0;
+    margin: 12px 10px;
+    border-top: 1px solid #eee;
+}
+
+.show-submenu .submenu {
+    opacity: 1;
+    -webkit-transform: translate(0, 25px) scale(1);
+    transform: translate(0, 25px) scale(1);
+    pointer-events: auto;
+}
+a{
+  text-decoration: none;
+}
+</style>
+
+<link rel="icon" href="https://lh6.googleusercontent.com/BE2wasp2QiugvFlJkY-HJvEdT_9kXPw5p3HkIy0ELVf9Q1b21HbLzcA4mQEL8N9vskSuQLhG52QyrQHyP_7n7BWsVTF3KB4uzqimyliV8wUofHPQ5CprLdBSJ1sOoXdjXn51i1jXq_-ucFIi9ZR49KGwgQ=s2048">
+<body>
+  <header>
+    <div class="header-contents">
+      <div id="menu_btn">MENU</div>
+      <br><br>
+    </div><!-- /.header-contents -->
+  </header>
+
+  <div id="menu">
+    <ul><font size="4">
+      <li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・あ行</summary>
+  <p>
+        <div><a href="#a"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・あ</font></a></div>
+        <div><a href="#i"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・い</font></a></div>
+                <div><a href="#u"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・う</font></a></div>
+                <div><a href="#e"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・え</font></a></div>
+                <div><a href="#o"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・お</font></a></div>
+  </p>
+</details></li>
+            <li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・か行</summary>
+  <p>
+        <div><a href="#ka"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・か</font></a></div>
+        <div><a href="#ki"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・き</font></a></div>
+                <div><a href="#ku"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・く</font></a></div>
+                <div><a href="#ke"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・け</font></a></div>
+                <div><a href="#ko"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・こ</font></a></div>
+  </p>
+</details></li>
+      <li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・さ行</summary>
+  <p>
+        <div><a href="#sa"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・さ</font></a></div>
+        <div><a href="#si"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・し</font></a></div>
+                <div><a href="#su"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・す</font></a></div>
+                <div><a href="#se"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・せ</font></a></div>
+                <div><a href="#so"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・そ</font></a></div>
+  </p>
+</details></li>
+      <li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・た行</summary>
+  <p>
+        <div><a href="#ta"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・た</font></a></div>
+        <div><a href="#ti"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ち</font></a></div>
+                <div><a href="#tu"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・つ</font></a></div>
+                <div><a href="#te"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・て</font></a></div>
+                <div><a href="#to"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・と</font></a></div>
+  </p>
+</details></li>
+      <li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・な行</summary>
+  <p>
+        <div><a href="#na"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・な</font></a></div>
+        <div><a href="#ni"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・に</font></a></div>
+                <div><a href="#nu"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ぬ</font></a></div>
+                <div><a href="#ne"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ね</font></a></div>
+                <div><a href="#no"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・の</font></a></div>
+  </p>
+</details></li>
+<li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・は行</summary>
+  <p>
+        <div><a href="#ha"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・は</font></a></div>
+        <div><a href="#hi"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ひ</font></a></div>
+                <div><a href="#hu"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ふ</font></a></div>
+                <div><a href="#he"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・へ</font></a></div>
+                <div><a href="#ho"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ほ</font></a></div>
+  </p>
+</details></li>
+<li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・ま行</summary>
+  <p>
+        <div><a href="#ma"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ま</font></a></div>
+        <div><a href="#mi"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・み</font></a></div>
+                <div><a href="#mu"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・む</font></a></div>
+                <div><a href="#me"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・め</font></a></div>
+                <div><a href="#mo"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・も</font></a></div>
+  </p>
+</details></li>
+<li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・や行</summary>
+  <p>
+        <div><a href="#ya"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・や</font></a></div>
+                <div><a href="#yu"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ゆ</font></a></div>
+                <div><a href="#yo"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・よ</font></a></div>
+  </p>
+</details></li>
+<li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・ら行</summary>
+  <p>
+        <div><a href="#ra"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ら</font></a></div>
+        <div><a href="ri"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・り</font></a></div>
+                <div><a href="#ru"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・る</font></a></div>
+                <div><a href="#re"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・れ</font></a></div>
+                <div><a href="#ro"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ろ</font></a></div>
+  </p>
+</details></li>
+<li><details class="c-accordion js-accordion">
+  <summary class="c-accordion__title js-accordion__title">・わ行</summary>
+  <p>
+        <div><a href="#wa"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・わ</font></a></div>
+                <div><a href="#"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・を</font></a></div>
+                <div><a href="#nn"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・ん</font></a></div>
+  </p>
+</details></li>
+    </font></ul>
+  </div>
+  <div class="menu-background"></div>
+  
+  <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    // メインコンテンツをヘッダーの高さ分だけずらす
+var headerHeight = $('header').outerHeight();
+$('main').css('padding-top', headerHeight + 'px');
+$('#menu').css('margin-top', headerHeight + 'px');
+
+// MENUボタンがクリックされたときの処理
+$('#menu_btn').on('click', function(){
+  if($(this).hasClass('active')) {
+    $(this).removeClass('active');
+    $(this).text('MENU');
+    $('#menu').removeClass('open');
+    $('.menu-background').removeClass('open');
+  } else {
+    $(this).addClass('active');
+    $(this).text('CLOSE');
+    $('#menu').addClass('open');
+    $('.menu-background').addClass('open');
+  }
+});
+
+// メニューの背景がクリックされたときの処理
+$('.menu-background').on('click', function(){
+  if($(this).hasClass('open')) {
+    $(this).removeClass('open');
+    $('#menu_btn').removeClass('active').text('MENU');
+    $('#menu').removeClass('open');
+  }
+});
+    let accordionDetails = ".js-accordion";
+let accordionSummary = ".js-accordion__title";
+let accordionContent = ".js-accordion__content";
+let speed = 200;
+
+$(accordionSummary).each(function () {
+  $(this).on("click", function (event) {
+    // デフォルトの挙動を無効化
+    event.preventDefault();
+    if ($(this).parent($(accordionDetails)).attr("open")) {
+      // アコーディオンを閉じるときの処理
+      $(this)
+        .nextAll($(accordionContent))
+        .slideUp(speed, function () {
+          // アニメーションの完了後にopen属性を取り除く
+          $(this).parent($(accordionDetails)).removeAttr("open");
+          // display:none;を消して、ページ内検索にヒットするようにする
+          $(this).show();
+        });
+    } else {
+      // 開いているアコーディオンがあったら閉じる
+      $(accordionSummary).each(function () {
+        if ($(this).parent($(accordionDetails)).attr("open")) {
+          $(this)
+            .nextAll($(accordionContent))
+            .slideUp(speed, function () {
+              $(this).parent($(accordionDetails)).removeAttr("open");
+              $(this).show();
+            });
+        }
+      });
+      // アコーディオンを開くときの処理
+      // open属性を付ける
+      $(this).parent($(accordionDetails)).attr("open", "true");
+      // いったんdisplay:none;してからslideDownで開く
+      $(this).nextAll($(accordionContent)).hide().slideDown(speed);
+    }
+  });
+});
+
+</script>
+</body>
+<Center><h1>黒田の支配下用語一覧</h1></Center><br>
+<p><div class="kuroda"><b>黒田の支配下の用語一覧</b>では、黒田の支配下(通称:黒田鯖)メンバーの言ってた発言をまとめたもの。</div>
+<div class="kuroda">用語を覚えることで黒田の支配下マスターになろう！</div></p><br>
+<a id="a"></a>
+<div class="kuroda" ><font size="6">・あ</font></div>
+<br><div class="kuroda"><b>あーいいねそれ</b></div>
+<div class="ueda">良いと思ったときにとうくんがよく言ってる。最近では、その後に"エロい"や"セクシー"などを付けることが多い。</div>
+<div class="ueda">事例として「あーいいねそれエロい」や「あーいいねそれセクシー」と続けることがある。</div>
+<br><div class="kuroda"><b>アイス食べてる動画</b></div>
+<div class="ueda">とうくんが2024/4/21(日)に投稿した謎の動画の1番最初のセリフ。微笑ましい動画でついディズニーに行ってみたくなる動画だった。ちなみに動画内で出てくるアイスは『ミッキーアイスバー（トロピカルフルーツ）
+』¥350で売っている。</div>
+<br><div class="kuroda"><b>あいつに投げるべきだろ</b></div>
+<div class="ueda">『大乱闘スマッシュブラザーズ SPECIAL』をプレイしているときに神田が「俺じゃない、あいつに投げるべきだろ」と発言した。これはポケモンボールでしか攻撃できない縛りプレイで、はちみーが神田にモンスターボールを投げて、神田は自分ではなくとうくんに投げるべきだろと、思っていることから生まれた言葉。</div>
+<div class="ueda">また、この名言を使った音madも存在しており、マテループに使われたりする。</div>
+<br><div class="kuroda"><b>喘ぐな</b></div>
+<div class="ueda">カプリコが神田に対して喘ぐなとよく言っている。実際は喘いでいないのが分かってるいるが、喘ぎ声に聞こえるときによく使われる。</div>
+<br><div class="kuroda"><b>青いオーラをまとったけつみ</b></div>
+<div class="ueda">『Gartic Phone - 伝言ゲーム』をしたときに、ポッチャマのイラストを、神田がなぜか青いオーラをまとったけつみと他の人に伝達したことが由来。汎用性は高くないが、なぜか愛されているセリフの1つである。</div>
+<br><div class="kuroda"><b>赤い男</b></div>
+<div class="ueda">赤い男が何なのかは不明。『大乱闘スマッシュブラザーズ SPECIAL』をプレイしているときに、はちみーが「この赤い男が最強」と述べていることからスマブラに出てくるキャラだと思われる。</div>
+<br><div class="kuroda"><b>諦めなことが大切なんです</b></div>
+<div class="ueda">『オドループ』を元にした『マテループ』の歌詞にでてくる言葉の一つ。元々は「踊ってたい夜が大切なんです」という歌詞だが神田が諦めなければどんなことにでも挑戦できるという、世界一かっこいい名言。</div>
+<div class="ueda">(ちなみに神田は言っていないらしい)</div>
+<br><div class="kuroda"><b>朝立夜立</b></div>
+<div class="ueda">ウエ・スケが描いた作品で、とても人気な作品。由来は木の形がちんこに似ている点と２つ木がある点、朝ちんこが立って、夜また立つという意味である。なぜ朝と夜なのかは、不明だがウエ・スケ自身が作品の真ん中に直線を引き、左を朝、右を夜にしたかったと述べている。またこの作品は考察がとてもされており、雲が精子や朝のほうが長いなどまだ解明出来てないことが多い。カプリコの実の母によるとこの絵は100点中3点らしい。</div>
+<br><div class="kuroda"><b>明日雨降らなかった</b></div>
+<div class="ueda">カプリコが明日、雨降りそうだなと行った際神田が「明日雨降らなかった」という未知の世界を知っている発言をした
+ことが由来。実際に2025/09/11は雨が降らなかったので本当に神田は未来に行っていた可能性がある。</div>
+<br><div class="kuroda"><b>あっw</b></div>
+<div class="ueda">カプリコがよく使ってる。あっ...(察し)と似たような言葉。手遅れなどの意味で使われることが多い。
+</div>
+<br><div class="kuroda"><b>頭回ってない</b></div>
+<div class="ueda">黒田の支配下メンバーで、『大乱闘スマッシュブラザーズ SPECIAL』を深夜にやっていた際ランダムでキャラを当てるまで寝れない地獄みたいな企画をしたとき、神田が発したセリフ。<br>実際のところ神田はいつも頭が回っていないので今後、「頭回ってる」という語録は追加されないだろう。</div>
+<br><div class="kuroda"><b>apple(アップル)</b></div>
+<div class="ueda">カプリコが2024/3/31(日)に電子辞書が届いたので試しに"apple"について調べたら、りんごではなく違う意味の、(乳房，おっぱい/きんたま，女のあそこ)などの意味になってしまった。原因は不明だが面白かったので黒田の支配下サーバーに載せた。
+</div>
+<div class="ueda">この事件から月日が経ち2024/4/22(月)の高校の下校中にappleの意味を神田に読ませようとしたが、小さい声と電車の音でかき消されて何を言ってるか分からなかった。
+</div>
+<br><div class="kuroda"><b>ありえないんだけど普通に</b></div>
+<div class="ueda">ありえないと思ったときに倒置法を用いて使うことで、普通にありえないより、さらにありえないことを
+強調するときに使う。また、初出としてはちみーが『ラウンジ』で全員一致すまで終われまテンのときにみんなと揃わなかったときに言ったセリフでもある。</div>
+<br><div class="kuroda"><b>案件じゃないんですけど</b></div>
+<div class="ueda">ゴールデンホイヤーを紹介する前置き。<a href="#KYrazio">K・Yラジオ</a>が初出</div>
+<a id="i"></a><br>
+<div class="kuroda" ><font size="6">・い</font></div>
+<br><div class="kuroda"><b>言いたくないです</b></div>
+<div class="ueda">神田が何か言いたくないときに、言うセリフ。しかし、大体はちみーなどに脅されて言うので結局黙秘できないオチ。また、派生形で「言わない」や「言えない」などあり、最近では「それ言う意味ある？」など意味を知りたがっている。</div>
+<br><div class="kuroda"><b>いいえ</b></div>
+<div class="ueda">もともと「お絵描きするって言ったらする？」とカプリコが発言した際に神田が「します」と発言をし、カプリコがサウンドボードに登録した。そしたら、とうくんが「はい」と「いいえ」も欲しいと発言し、神田が直々に録音してくれた。</div>
+<br><div class="kuroda"><b>いきますよー</b></div>
+<div class="ueda">はちみーが『ラウンジ』で全員一致するまで終われまテンのときにみんなの答えを確認するときに発言した。「いきますよー」は汎用性が高く未だに使われている。しかし神田が使うとはちみーは怒るので神田は使えない(？)ような感じになっている。</div>
+<div class="ueda">また『黒田の支配下合作』の原曲P.h.という音madでも使われた優秀なセリフである。</div>
+<br><div class="kuroda"><b>1√2</b></div>
+<div class="ueda">三角比のsin45°を神田が1√2と言ったことが由来。使いどころはほとんどないが試験などで、<br>「[ア]√[イ]」といった問題があったときに[ア]に1や0を代入しないように注意。</div>
+<br><div class="kuroda"><b>今、胃の中</b></div>
+<div class="ueda">850が誰かしらに食べられたときに使う発言。ちなみに食べられた犯人は分かっていないが、多分ブルーベリーの人なのではないか？とされている。</div>
+<br><div class="kuroda"><b>今から性について学んできます</b></div>
+<div class="ueda">神田がいきなり「今から性について学んできます」と発言したことが由来。「性」については高校の定期考査の保険のテストの勉強を指している。実際のところ性について学べたのかは不明。</div>
+<a id="u"></a><br>
+<div class="kuroda" ><font size="6">・う</font></div>
+<br><div class="kuroda"><b>ウエ・スケ</b></div>
+<div class="ueda">朝立夜立の作品を描いた有名画家。とても人気が高く神田より好かれている。また、ウエ・スケの作品は素晴らしくルーヴル美術館に展示されたこともある。</div>
+<br><div class="kuroda"><b>上素</b></div>
+<div class="ueda">神田が水素イオンをH±と発言したことから由来。勝手に俺らが上素と呼んでるだけで今のところ現実世界には無いとされている</div>
+<div class="ueda">元素番号110：H±(ウエソ)Uedagen 密度0</div>
+<br><div class="kuroda"><a id="urusai"></a><b>動いてないのに爆発した</b></div>
+<div class="ueda">『大乱闘スマッシュブラザーズ SPECIAL』でスネーク自身で置いたC4が爆発し、自分に被害があったときに使う言葉。偽ホシノ語録の1つである。</div>
+<br><div class="kuroda"><a id="urusai"></a><b>うるさい</b></div>
+<div class="ueda">神田が不利な盤面になったときに、話を終わらせるために使っているセリフ。しかし、実際はうるさいと言ってる側がうるさいので誰も言うことを聞かないのが事実。</div>
+<br><div class="kuroda"><b>うるさいテンガ食わせるよ</b></div>
+<div class="ueda"><a href="#urusai">うるさい</a>の派生形の1つであり、うるさかった人にはテンガを食わせれば黙るらしい。ちなみに、初出は850だとされている。</div>
+<br><div class="kuroda"><b>うんこ</b></div>
+<div class="ueda">神田が"よく"発言する言葉、クソだった瞬間やゴミみたいなときに発言している。
+使い方として「このゲームまじでうんこ」派生形として、うんち！などもあるが同様の意味である。
+<br>うんこの他に、ら・うんち(launch,開始する)、うんこバー(uncover,を暴く)なども存在する</b></div>
+<a id="e"></a><br>
+<div class="kuroda" ><font size="6">・え</font></div>
+<br><div class="kuroda"><b>江ノ島県</b></div>
+<div class="ueda">江ノ島とは神奈川県にある地名の名前であり、現在の都道府県である。静岡県の地名を神田が江ノ島県と述べたことから、ついた名前。</div>
+<br><div class="kuroda"><b>えぐい</b></div>
+<div class="ueda">ありえないと思ったときに神田が発言している言葉。使い方としては主語をつけないで「えぐい，えぐい，えぐい」と述べると神田のような雰囲気を出すことができる。</div>
+<a id="o"></a><br>
+<div class="kuroda" ><font size="6">・お</font></div>
+<br><div class="kuroda"><b>おいメテオ</b></div>
+<div class="ueda">『大乱闘スマッシュブラザーズ SPECIAL』をプレイしているときに、神田がメテオをするときに発する言葉。体感20%ぐらいでメテオされてしまう。また神田の音madでよく使われることが多い。</div>
+<br><div class="kuroda"><b>溺れてる</b></div>
+<div class="ueda">神田の風呂が長過ぎることからはちみーが、溺れていると比喩表現で用いられている。体感1時間以上入っているので多分比喩ではなく本当に溺れている可能性がある。</div>
+<br><div class="kuroda"><b>俺はどうせクソ人間だから構文</b></div>
+<div class="ueda">神田が「俺はどうせクソ人間だから。高校なんて行けないんだよ。どうせ偏差値の低いところだよ。」とか言う自虐ブームをするときに使う文章。参照は<a href="#kuso">クソ人間</a>より</div>
+<br><div class="kuroda"><b>終わった</b></div>
+<div class="ueda">神田がソシャゲで爆死したときに言っている。また、ゲームで詰んでしまったときにたまに言う言葉。</div>
+<a id="ka"></a><br>
+<div class="kuroda" ><font size="6">・か</font></div>
+<br><div class="kuroda"><b>革命軍</b></div>
+<div class="ueda">『桃太郎電鉄』シリーズで「キングに！カード」を神田が使ったことが由来。このカードを使ったことで最強に
+なる瞬間でもある。また、革命を起こした人物もこれに当たる。</div>
+<br><div class="kuroda"><b>カジキマグロ</b></div>
+<div class="ueda">はちみーが『ラウンジ』で全員一致すまで終われまテンのときに「高級魚といえば」というお題で「カジキマグロ」と、発言している。また『黒田の支配下合作』の原曲P.h.という音madでも使われた優秀なセリフである。</div>
+<br><div class="kuroda"><b>勝てない</b></div>
+<div class="ueda">神田がゲームで勝てないときに使う言葉。このときはだいたい覚醒状態なので最強です。</div>
+<br><div class="kuroda"><b>彼女欲しい</b></div>
+<div class="ueda">神田の口癖の1つ。神田は彼女が欲しいらしい。</div>
+<br><div class="kuroda"><b>金無い</b></div>
+<div class="ueda">神田がよく言い訳で使っている言葉。実際に金がないらしくPayPayの画像をDiscordに貼るがこいつには現金を知らないらしい。</div>
+<br><div class="kuroda"><b>神リコアート</b></div>
+<div class="ueda">カプリコが2024/1/9(火)に誕生したファンアート。神田とカプリコのファンアートを描いてもらう公式タグ。使ってる人口は少ないが尊いアートがたくさん存在している(白目)</div>
+<br><div class="kuroda"><b>カラオケ配信</b></div>
+<div class="ueda">神田がよく『WePlay』というアプリを使ってカラオケをしている。しかし、曲が来ても歌わないことが多い。歌い始めると神田の本気の歌が聞こえるので積極的にみんなは聞いてほしい。</div>
+<br><div class="kuroda"><b>体がヘキサゴン</b></div>
+<div class="ueda">ゾンビキラーが未所持のときの神田はこの状態を指す。</div>
+<a id="ki"></a><br>
+<div class="kuroda" ><font size="6">・き</font></div>
+<br><div class="kuroda"><b>キタパイマン</b></div>
+<div class="ueda">はちみーが麻雀で作る役の1つであり、実際のところどんなものか不明。そもそも役なのかも不明である。</div>
+<br><div class="kuroda"><b>キモい</b></div>
+<div class="ueda">神田がキモいと思ったときに言っている言葉。</div>
+<br><div class="kuroda"><b>今日学生証持ってないんで、写真でもいいですか？</b></div>
+<div class="ueda">黒田の支配下メンバーでカラオケに行った際に、神田だけ学生証を持っていなくたまたま、はちみーが神田の
+学生証の写真を取っていたことで、延命することになった。</div>
+<br><div class="kuroda"><b>虚式蒼</b></div>
+<div class="ueda">神田が使う技の1つ。『大乱闘スマッシュブラザーズ SPECIAL』のセフィロスの技の1つであるメガフレアを指す。</div>
+<br><div class="kuroda"><b>虚式ムラムラ</b></div>
+<div class="ueda">神田が少しムラムラし始めると使う技の1つ。<br>神田のセリフ「少し乱交をしようか」は伝説のセリフとなった。</b></div>
+<br><div class="kuroda"><b>金玉を殴るとダメージ5倍</b></div>
+<div class="ueda">中学校の頃下校中に金玉を蹴られた事件があった。そのときに金玉を殴るとダメージ5倍とかいう頭おかしいことをカプリコが言った。</div>
+<a id="ku"></a><br>
+<div class="kuroda" ><font size="6">・く</font></div>
+<br><div class="kuroda"><a id="kuso"></a><b>クソ人間</b></div>
+<div class="ueda">クソ人間とは神田のことを指すことが多いが、実際は黒田の支配下のメンバー全員がこれに当たるのかもしれない。地球上に生きている人物でクソではない人間はいない、そういうことを訴えているような言葉の1つ。</div>
+<br><div class="kuroda"><b>黒田の支配下の用語一覧</b></div>
+<div class="ueda">黒田の支配下の用語一覧は今ご覧になってる、このことを指す。黒田鯖語録とも言われている。ここには、黒田の支配下で発言された名言や語録、用語などを載せている。</div>
+<br><div class="kuroda"><b>黒田ーゲット8735</b></div>
+<div class="ueda">読み方は、クロターゲット，クロダーゲットの二通りの解釈ができる。黒田の支配下のメンバーが『ターゲット1900』に載っている英単語の意味を予測してその予測したものが英単語の意味になる参考書。予測した結果が本来の意味とあっているかカプリコなどが判断している。本来の意味とあっている割合が約7~8割であり割と使い勝手のいい参考書でもある。</div>
+<br><div class="kuroda"><b>群馬関東じゃない</b></div>
+<div class="ueda">黒田の支配下では群馬県は関東に入らない(確信)。初出は関東最弱ポケふた決定戦で群馬県は関東ではないと否定されている。実際のところ群馬県はグンマー帝国というものが存在しておりこの認識は間違っていないのかもしれない。</div>
+<a id="ke"></a><br>
+<div class="kuroda" ><font size="6">・け</font></div>
+<br><div class="kuroda"><a href="#KYrazio"><b>K・Yラジオ</b></div>
+<div class="ueda">神田が声優になったときにラジオができるかのチェックのために作られた企画の1つ。黒田の支配下のメンバーがお便りうぃ解決したり雑談したりする企画。</div>
+<br><div class="kuroda"><b>消せ</b></div>
+<div class="ueda">神田にとって不都合なときによく使われる発言。最近は無言で消されるので使われない傾向になっている。</div>
+<br><div class="kuroda"><b>下痢とうんこ</b></div>
+<div class="ueda">神田の蔑称用語の1つ。</div>
+<a id="ko"></a><br>
+<div class="kuroda" ><font size="6">・こ</font></div>
+<br><div class="kuroda"><b>これ女が歌うん</b></div>
+<div class="ueda">『WePlay』というアプリを使ってカラオケを神田がしていた際に、カプリコが発したセリフである。今の時代では大炎上するので禁句になっているセリフの1つ。</div>
+<br><div class="kuroda"><b>これしかないと思ってるおれもう</b></div>
+<div class="ueda">神田が『ラウンジ』で全員一致するまで終われまテンのときに発したがどこからこの根拠が来ているかは不明。</div>
+<br><div class="kuroda"><b>これじゃZOZOタウン</b></div>
+<div class="ueda">はちみーが『ラウンジ』で全員一致するまで終われまテンのときに発したがどんな場面で言ったのかは不明。ZOZOタウンになりそうなときに言う。</div>
+<br><div class="kuroda"><b>こわごー</b></div>
+<div class="ueda">神田を応援するときによく使われる。EIKO!GO!!と同じような意味だと思ってほしい。</div>
+<a id="sa"></a><br>
+<div class="kuroda" ><font size="6">・さ</font></div>
+<br><div class="kuroda"><b>sin60°=2√3</b></div>
+<div class="ueda">0≤θ≤2πのときになぜかsin60°が1を超えている稀な例。ちなみに、神田がこの値を見つけた。実際はsin60°=√3/2であるので覚えておきましょう</div>
+<br><div class="kuroda"><b>佐天涙子Aカップ</b></div>
+<div class="ueda">『とある』シリーズに登場する佐天涙子というキャラのカップ数はAカップであることを示唆している。『みんなで早押しクイズ』のクイズ開始前のチャットではちみーがよく発言している。元ネタがあるのかは不明。</div>
+<a id="si"></a><br>
+<div class="kuroda" ><font size="6">・し</font></div>
+<br><div class="kuroda"><b>自虐ネタ面白くないからやめたほうがいいよ</b></div>
+<div class="ueda">カプリコが言った発言で、自分が自虐ネタをしたのに自虐ネタ面白くないとかいう矛盾ムーブをするときに使う。また、他の誰かが自虐ネタをしたときに使う。</div>
+<br><div class="kuroda"><b>死ぬとか軽々しく言うなよ</b></div>
+<div class="ueda">850が死ぬを多発した神田に対して言った発言。</div>
+<br><div class="kuroda"><b>じゃあ5点かも</b></div>
+<div class="ueda">学校でTOEICを神田が受けたことあると行った際に、5点刻みだと知ったら神田が5/990点かもと言った発言が由来。ちなみにTOEICではリーディングパートとリスニングパートの最低5点を足すので最低点は10点なので5点になることはまずない。</div>
+<br><div class="kuroda"><b>JJKコラボ</b></div>
+<div class="ueda">JJKコラボとは(Jジョン万J次郎でK興奮してるよ)コラボの頭文字だとカプリコが勝手に勘違いした。ちなみに、JJKは別に呪術廻戦という意味ではないらしい。<br>参照は<a href="#jonmanziro">ジョン万次郎で興奮してるよ</a>より</div>
+<br><div class="kuroda"><a id="jonmanziro"><b>ジョン万次郎で興奮してるよ</b></div>
+<div class="ueda">『モンスターストライク』に出てくるジョン万次郎で神田が興奮している際に発したセリフであり、神田の音madでよく使われることが多い。</div>
+<a id="su"></a><br>
+<div class="kuroda" ><font size="6">・す</font></div>
+<br><div class="kuroda"><b>蘇芳Շゃꩢ🍺ദ്ദി_ｽｵｳ꙳ℋ⁷</b></div>
+<div class="ueda">神田の<a href="#spoon">Spoon</a>アカウントの名前の1つ。某配信者の名前を真似たらしい。ちなみに、神田自身はこの文字を打つことができない。</div>
+<br><div class="kuroda"><b>須藤繭</b></div>
+<div class="ueda">黒田の支配下のメンバーが通っていた国語の先生の名前。カプリコの別名義である。</div>
+<br><div class="kuroda"><a id="spoon"><b>Spoon</b></div>
+<div class="ueda">読み方はスポーンである。神田が愛用しているアプリの1つで声だけの配信アプリである。</div>
+<a id="se"></a><br>
+<div class="kuroda" ><font size="6">・せ</font></div>
+<br><div class="kuroda"><b>世界のトイレ</b></div>
+<div class="ueda">神田が『ラウンジ』で全員一致するまで終われまテンのときに発した問題発言。どうしてこうなったのか分からないが世界のトイレらしい。</div>
+<br><div class="kuroda"><b>センス無い</b></div>
+<div class="ueda">中学校のときのバレー部の顧問が発したセリフ。センスがない感じられないときに使う。良く使われるので覚えた方がいい。</div>
