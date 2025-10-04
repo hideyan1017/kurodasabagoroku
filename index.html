@@ -345,22 +345,86 @@ html {
 a{
   text-decoration: none;
 }
+  ul.cp_list {
+  position: relative;
+  padding: 0 0.5em;
+  margin-top: 2em;
+  list-style-type: none;
+  border: solid 2px #29B6F6;
+}
+ul.cp_list::after {
+  position: absolute;
+  bottom: 100%;
+  left: -2px;
+  content: "LIST";
+  padding: 1px 7px;
+  font-weight: bold;
+  font-size: .8em;
+  color: #fff;
+  background: #29B6F6;
+  border-radius: 4px 4px 0px 0px;
+}
+ul.cp_list li {
+  padding: 5px 5px 5px 20px;
+  border-bottom: 1px dashed #81D4FA;
+}
+ul.cp_list li::before {
+  position: absolute;
+  left : 5px;
+  content: "
+ul.cp_list {
+position: relative;
+padding: 0 0.5em;
+margin-top: 2em;
+list-style-type: none;
+border: solid 2px #29B6F6;
+}
+ul.cp_list::after {
+position: absolute;
+bottom: 100%;
+left: -2px;
+content: "LIST";
+padding: 1px 7px;
+font-weight: bold;
+font-size: .8em;
+color: #fff;
+background: #29B6F6;
+border-radius: 4px 4px 0px 0px;
+}
+ul.cp_list li {
+padding: 5px 5px 5px 20px;
+border-bottom: 1px dashed #81D4FA;
+}
+ul.cp_list li::before {
+position: absolute;
+left : 5px;
+content: "\002713";
+color: #FF5722;
+font-weight: bold;
+}
+ul.cp_list li:last-of-type {
+border-bottom: none;
+}
+2713";
+  color: #FF5722;
+  font-weight: bold;
+}
+ul.cp_list li:last-of-type {
+  border-bottom: none;
+}
 </style>
 
-  <header>
-    <div class="header-contents">
-      <div id="menu_btn">MENU</div>
-      <br><br>
-    </div><!-- /.header-contents -->
-	</head>
-  </header>
 
-  <div id="menu">
+<Center><h1>黒田の支配下用語一覧</h1></Center><br>
+<p><div class="kuroda"><b>黒田の支配下の用語一覧</b>では、黒田の支配下(通称:黒田鯖)メンバーの言ってた発言をまとめたもの。</div>
+<div class="kuroda">用語を覚えることで黒田の支配下マスターになろう！</div></p><br>
+  <ul class="cp_list">
+ <div>
     <ul><font size="4">
       <li><details class="c-accordion js-accordion">
   <summary class="c-accordion__title js-accordion__title">・あ行</summary>
   <p>
-        <div><a href="#a"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・あ</font></a></div>
+        <div><a href="#a"><font color=gray>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・あ</font></a></div>
         <div><a href="#i"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・い</font></a></div>
                 <div><a href="#u"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・う</font></a></div>
                 <div><a href="#e"><font color=white>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;・え</font></a></div>
@@ -455,6 +519,8 @@ a{
 </details></li>
     </font></ul>
   </div>
+</ul>
+ 
   <div class="menu-background"></div>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
   <script type="text/javascript">
@@ -529,9 +595,6 @@ $(accordionSummary).each(function () {
 </script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </body>
-<Center><h1>黒田の支配下用語一覧</h1></Center><br>
-<p><div class="kuroda"><b>黒田の支配下の用語一覧</b>では、黒田の支配下(通称:黒田鯖)メンバーの言ってた発言をまとめたもの。</div>
-<div class="kuroda">用語を覚えることで黒田の支配下マスターになろう！</div></p><br>
 <a id="a"></a>
 <div class="kuroda" ><font size="6">・あ</font></div>
 <br><div class="kuroda"><b>あーいいねそれ</b></div>
